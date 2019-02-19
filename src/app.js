@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
       },
 
       addToFavourites: function(){
+        // This method returns -1 if the value to search for never occurs
         if(this.favouriteBeers.indexOf(this.selectedBeer) === -1) {
           this.favouriteBeers.push(this.selectedBeer);
         }
