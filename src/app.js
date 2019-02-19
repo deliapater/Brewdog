@@ -27,6 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       addToFavourites: function(){
         this.favouriteBeers.push(this.selectedBeer)
+      },
+
+      deleteFromFavourites: function(){
+        this.favouriteBeers.splice(this.selectedBeer)
       }
   }
     })
