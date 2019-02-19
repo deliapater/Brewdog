@@ -7,7 +7,7 @@
 <body>
 
 	<div id="app">
- <h1>Brewdog</h1>
+		<h1>Brewdog</h1>
 		<label for="beer_select">Select a beer:</label>
 		<select v-on:change="beerSelect" id="beer_select" v-model="selectedBeerIndex">
 			<option disable value="">Select a beer</option>
@@ -19,28 +19,27 @@
 			<h3>{{selectedBeer.description}}</h3>
 			<h3>Ingredients</h3>
 			<li>Malt: {{selectedBeer.ingredients.malt[0].name}}
-			x {{selectedBeer.ingredients.malt[0].amount.value}}
-			{{selectedBeer.ingredients.malt[0].amount.unit}} </li>
+				x {{selectedBeer.ingredients.malt[0].amount.value}}
+				{{selectedBeer.ingredients.malt[0].amount.unit}} </li>
 
-			<li>Hops: {{selectedBeer.ingredients.hops[0].name}}
-				x {{selectedBeer.ingredients.hops[0].amount.value}}
-				{{selectedBeer.ingredients.hops[0].amount.unit}}/
-				add: {{selectedBeer.ingredients.hops[0].add}}/ attribute:
-				{{selectedBeer.ingredients.hops[0].attribute}}
-			</li>
+				<li>Hops: {{selectedBeer.ingredients.hops[0].name}}
+					x {{selectedBeer.ingredients.hops[0].amount.value}}
+					{{selectedBeer.ingredients.hops[0].amount.unit}}/
+					add: {{selectedBeer.ingredients.hops[0].add}}/ attribute:
+					{{selectedBeer.ingredients.hops[0].attribute}}
+				</li>
 
-			<li>Yeast: {{selectedBeer.ingredients.yeast}}</li><br>
-			<img :alt="selectedBeer.name" :src="selectedBeer.image_url"/><br>
-			<button v-on:click="addToFavourites">Add Beer</button>
-			<button v-on:click="deleteFromFavourites">Remove Beer</button>
+				<li>Yeast: {{selectedBeer.ingredients.yeast}}</li><br>
+				<img :alt="selectedBeer.name" :src="selectedBeer.image_url"/><br>
+				<button v-on:click="addToFavourites">Add Beer</button>
+			</div>
+
+			<h2>Favourite Beers</h2>
+			<div v-for="(beer, index) in favouriteBeers">
+				<li>{{beer.name}}</li>
+				<button v-if="favouriteBeers" v-on:click="removeBeer(index)">Remove Beer</button>
+			</div>
+
 		</div>
-
-		<h2>Favourite Beers</h2>
-		<div v-for="beer in favouriteBeers">
-			<li>{{beer.name}}</li>
-		</div>
-
-
-	</div>
-</body>
-</html>
+	</body>
+	</html>

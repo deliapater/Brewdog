@@ -22,16 +22,18 @@ document.addEventListener('DOMContentLoaded', () => {
       },
 
       beerSelect: function(){
-      this.selectedBeer = this.beers[this.selectedBeerIndex]
-   },
-
-      addToFavourites: function(){
-        this.favouriteBeers.push(this.selectedBeer)
+        this.selectedBeer = this.beers[this.selectedBeerIndex]
       },
 
-      deleteFromFavourites: function(){
-        this.favouriteBeers.splice(this.selectedBeer)
+      addToFavourites: function(){
+        if(this.favouriteBeers.indexOf(this.selectedBeer) === -1) {
+          this.favouriteBeers.push(this.selectedBeer);
+        }
+      },
+
+      removeBeer: function(index) {
+        this.favouriteBeers.splice(this.id, 1)
       }
-  }
-    })
+    }
+  })
 })
